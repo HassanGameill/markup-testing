@@ -1,23 +1,26 @@
+import Image from "next/image";
 
+import Link from "next/link";
 
-type TCatdData = {
-    name: string;
-    photoLink: string;
-    tweetLink: string;
-    position: string;
-    text: string;
+type TCommentData = {
+  name: string;
+  position: string;
+  text: string;
+  photoLink: any;
+  tweetLink: any;
+
 }
 
 
-export const NewsUsCard = ({ name, position, text, photoLink, tweetLink }: TCatdData) => {
+export const NewsUsCard = ({ name, position, text, photoLink, tweetLink }: TCommentData) => {
     return (
       <div className="relative group">
         <div className="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-200 group-hover:opacity-100 group-hover:duration-200" />
-        <a href="/" className="cursor-pointer">
+        <Link href="/" className="cursor-pointer">
           <div className="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5 highlight">
           
             <div className="">
-              <img
+              <Image
               src={photoLink}
               className="bg-center bg-cover"
                 alt=""
@@ -31,7 +34,7 @@ export const NewsUsCard = ({ name, position, text, photoLink, tweetLink }: TCatd
             </div>
             
           </div>
-        </a>
+        </Link>
       </div>
     );
   };

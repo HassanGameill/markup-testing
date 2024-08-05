@@ -1,15 +1,33 @@
-export const Tweet = ({ name, position, text, photoLink, tweetLink }) => {
+
+import Image from "next/image";
+
+import Link from "next/link";
+
+type TCommentData = {
+  name: string;
+  position: string;
+  text: string;
+  photoLink: any;
+  tweetLink: any;
+
+}
+
+
+
+export const Tweet = ({ name, position, text, photoLink, tweetLink }: TCommentData) => {
     return (
       <div className="relative group">
         <div className="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-200 group-hover:opacity-100 group-hover:duration-200" />
-        <a href="/" className="cursor-pointer">
+        <Link href="/" className="cursor-pointer">
           <div className="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5 highlight">
           
             <div className="flex items-center space-x-4">
-              <img
+              <Image
               src={photoLink}
               className="w-12 h-12 bg-center bg-cover border rounded-full"
                 alt=""
+                width={12}
+                height={12}
               />
               <div>
                 <h3 className="text-lg font-semibold text-white">
@@ -25,7 +43,7 @@ export const Tweet = ({ name, position, text, photoLink, tweetLink }) => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, commodi.
             </p>
           </div>
-        </a>
+        </Link>
       </div>
     );
   };
